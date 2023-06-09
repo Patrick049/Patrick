@@ -1,0 +1,82 @@
+﻿配置管理工具git跟SVN有什么区别
+svn是集中化管理，git是分布式管理
+svn只有一个集中管理的服务器，git的每个终端都是一个仓库
+
+
+描述一下git更新本地文件的命令，再描述一下git提交本地文件的操作过程。
+更新：git pull
+提交：git add .
+      git commit -m ''
+
+
+短信验证码登录的思路，包含安全测试的测试用例
+
+
+
+Linux常用命令有哪些？
+cd cp mv cat ps grep ls su pwd touch mkdir rm rmdir 
+
+
+Linux如何杀死进程?
+先查看进程pid  ps -ef |grep 进程
+kill Pid        kill -9 Pid
+
+
+Linux如何查看日志？
+tail -f 日志名
+
+
+Linux查询具体时间段的日志
+cat 日志名 |sed -n '/起始时间/,/终止时间/p'
+
+
+bug开发不认可你如何解决？
+提交bug前遵守‘三次原则’，避免是偶发bug。先自查，确认提交的bug有效的；
+然后找用例编写人员，确认测试用例的准确性；
+再找需求分析人员，确认需求，然后再找开发尝试协商，如果还是无法解决最后在联系测试经理。
+
+
+HTTP协议中get请求和POST请求的区别？
+get请求用于获取数据，post请求提交数据
+POST 比 GET 安全，因为数据在地址栏上不可见
+
+
+SIT测试，UAT测试分别怎么测试什么？
+SIT测试是系统集成测试，UAT是用户验收测试
+
+
+
+测试用例的八大要素有哪些?
+    1、用例编号；
+　　2、测试项目；
+　　3、测试标题；
+　　4、重要级别；
+　　5、预置条件；
+　　6、测试输入；
+　　7、操作步骤；
+　　8、预期输出
+
+
+缺陷的生命周期?
+1.New     新建
+
+2.Open    打开 
+
+3.Assign  指派
+
+4.Test    测试
+
+5.Verified  确认
+
+6.Deferred  延期
+
+7.Reopened  重新打开
+
+8.Duplicate  重复
+
+9.Rejected   拒绝
+
+10.Closed    关闭
+
+
+

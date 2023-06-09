@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<items>
+	<item id="NodeList/DBNProjectDatabases/DBNBookmarkFolder/DBNDiagramFolder/DBNResource">
+		<column name="名称" visible="true" order="0" width="100"/>
+		<column name="路径" visible="true" order="1" width="111"/>
+		<column name="大小" visible="true" order="2" width="100"/>
+		<column name="上次修改的" visible="true" order="3" width="129"/>
+	</item>
+	<item id="NodeList/MySQLCatalog">
+		<column name="模式名称" visible="true" order="0" width="100"/>
+		<column name="默认字符集" visible="true" order="1" width="100"/>
+		<column name="默认排序规则" visible="true" order="2" width="100"/>
+		<column name="SQL 路径" visible="true" order="3" width="100"/>
+		<column name="数据库大小" visible="true" order="4" width="100"/>
+	</item>
+	<item id="NodeList/MySQLTable">
+		<column name="表名" visible="true" order="0" width="100"/>
+		<column name="引擎" visible="true" order="1" width="100"/>
+		<column name="自增" visible="true" order="2" width="100"/>
+		<column name="数据长度" visible="true" order="3" width="100"/>
+		<column name="描述" visible="true" order="4" width="100"/>
+	</item>
+	<item id="NodeList/MySQLTableColumn">
+		<column name="字段名" visible="true" order="0" width="100"/>
+		<column name="#" visible="true" order="1" width="100"/>
+		<column name="数据类型" visible="true" order="2" width="100"/>
+		<column name="非空" visible="true" order="4" width="100"/>
+		<column name="自增" visible="true" order="5" width="100"/>
+		<column name="键" visible="true" order="3" width="100"/>
+		<column name="默认" visible="true" order="6" width="100"/>
+		<column name="额外的" visible="true" order="7" width="100"/>
+		<column name="表达式" visible="true" order="8" width="100"/>
+		<column name="字符集" visible="true" order="9" width="100"/>
+		<column name="注释" visible="true" order="10" width="100"/>
+	</item>
+	<item id="NodeList/MySQLTableConstraint">
+		<column name="名称" visible="true" order="0" width="100"/>
+		<column name="所有者" visible="true" order="1" width="100"/>
+		<column name="类型" visible="true" order="2" width="100"/>
+		<column name="检查表达式" visible="true" order="3" width="100"/>
+	</item>
+	<item id="NodeList/MySQLTableConstraint/MySQLTableConstraintColumn">
+		<column name="名称" visible="true" order="0" width="105"/>
+		<column name="所有者" visible="true" order="1" width="100"/>
+		<column name="类型" visible="true" order="2" width="100"/>
+	</item>
+	<item id="NodeList/MySQLTableForeignKey">
+		<column name="名称" visible="true" order="0" width="100"/>
+		<column name="所有者" visible="true" order="1" width="100"/>
+		<column name="引用表" visible="true" order="2" width="100"/>
+		<column name="类型" visible="true" order="3" width="100"/>
+		<column name="引用对象" visible="true" order="4" width="100"/>
+		<column name="删除时的规则" visible="true" order="5" width="100"/>
+		<column name="更新时的规则" visible="true" order="6" width="100"/>
+	</item>
+	<item id="SchemaSelector">
+		<column name="模式名称" visible="true" order="0" width="100"/>
+		<column name="默认字符集" visible="true" order="1" width="100"/>
+		<column name="默认排序规则" visible="true" order="2" width="100"/>
+		<column name="SQL 路径" visible="true" order="3" width="100"/>
+		<column name="数据库大小" visible="true" order="4" width="100"/>
+	</item>
+	<item id="scriptSelectorViewer">
+		<column name="Script" visible="true" order="0" width="142"/>
+		<column name="Time" visible="true" order="1" width="185"/>
+		<column name="Info" visible="true" order="2" width="86"/>
+		<column name="Folder" visible="true" order="3" width="98"/>
+	</item>
+</items>

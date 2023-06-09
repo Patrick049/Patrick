@@ -1,0 +1,41 @@
+概述：
+
+简单的说，就是一组SQL语句集，功能强大，可以实现一些比较复杂的逻辑功能，类似于JAVA语言中的方法；
+
+存储过程是一组SQL语句，存储过程是主动调用的，不调用则不会自己执行，调用一次执行一次（其实就是开发语言里的封装函数，有需要的时候调用一下就执行一下）；
+
+存储过程的增删改查：
+增加一个存储过程:
+CREATE PROCEDURE proc (IN num INT)
+BEGIN
+SELECT * FROM v9_qd_account limit num;
+END 
+
+
+调用一个存储过程（必须要先创建存储过程，才能调用）：
+CALL proc(5);
+
+查看存储过程：
+SHOW PROCEDURE STATUS LIKE 'C%'; //查看以字母C开头的存储过程的保存信息
+SHOW CREATE PROCEDURE proc;  //查看叫proc的存储过程的sql语句
+
+
+删除存储过程：
+DROP PROCEDURE IF EXISTS proc;  //删除存储过程，如果存在存储过程proc的情况下
+
+实际应用场景：
+用于快速的增加测试数据，比如快速构造一万条（或则一百万条）测试数据：
+CREATE PROCEDURE proc (IN num INT)
+BEGIN
+declare i int;
+    set i=10000;
+    while i<num do
+       INSERT INTO emp VALUES	(	i,"SMITH","CLERK",i,	'1980-12-17',i,NULL,20);
+         set i=i+1;
+    end while;
+END
+
+CALL proc(20000);
+
+select * from emp;
+delete from emp where empno>=10000;

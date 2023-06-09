@@ -1,0 +1,498 @@
+{
+	"info": {
+		"_postman_id": "65975db7-831a-4085-a84b-2c1361c9dd7a",
+		"name": "Seafile",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"_postman_id": "8d5ef4fc-aa35-4059-8d85-3bd6c6a3c56e",
+			"name": "login",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "267be131-5d8d-446f-8dac-791105de98c2",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"响应中包含 'token'\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"token\");",
+							"});",
+							"",
+							"",
+							"pm.test(\"提取token值\", function () {",
+							"    //将响应提提取出来以json格式",
+							"    var jsonData = pm.response.json();",
+							"    //设置全局变量t，将token值存储在t中",
+							"    pm.globals.set(\"t\", jsonData.token);",
+							"    //console.log(pm.globals.get('t'));",
+							"});",
+							"",
+							""
+						]
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "ddd58192-1e72-49c5-b754-76cb5e59d59d",
+						"type": "text/javascript",
+						"exec": [
+							"pm.globals.set(\"username\", \"data.zhanghao\");",
+							"",
+							"pm.globals.set(\"password\", \"data.mima\");"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "username",
+							"value": "pai@qq.com",
+							"sessionValue": "guo@qq.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "123456",
+							"sessionValue": "123456",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{host}}/api2/auth-token/",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api2",
+						"auth-token",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"_postman_id": "606f0243-c4fe-40cd-83fc-66d78134bee9",
+			"name": "accountinfo",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "f9556144-c99f-4e39-8254-a00163a7529b",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"响应中包含 'name'\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"name\");",
+							"});",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "token {{t}}"
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "{{host}}/api2/account/info/",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api2",
+						"account",
+						"info",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"_postman_id": "13ca62e2-75b3-4c39-b9a3-37827ef54c10",
+			"name": "add",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "db818167-547b-4e84-8336-52aa29349e34",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Body matches string\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"repo_name\");",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "token {{t}}"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "myziliao",
+							"sessionValue": "myziliao",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{host}}/api2/repos/",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api2",
+						"repos",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"_postman_id": "a77c7cd8-d14d-4d98-b61f-4baa3f3453bc",
+			"name": "repos",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "d977cfa5-82ea-48ce-b0af-fad40a81b539",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"提取id\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    //console.log(jsonData[0].id);",
+							"    pm.globals.set(\"id\", jsonData[0].id);",
+							"});",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "token {{t}}"
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "{{host}}/api2/repos/",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api2",
+						"repos",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"_postman_id": "ba177428-b5a4-4a36-8904-c98db9480294",
+			"name": "deleterepo",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "dcde88aa-f1a0-4e1b-b1db-915bb2812a92",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Body matches string\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"success\");",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "token {{t}}"
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "{{host}}/api2/repos/{{id}}/",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api2",
+						"repos",
+						"{{id}}",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"_postman_id": "66bf61d8-753a-4b12-8c28-3d6dcce6371b",
+			"name": "add Copy",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "db818167-547b-4e84-8336-52aa29349e34",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Body matches string\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"repo_name\");",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "token {{t}}"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "myziliao",
+							"sessionValue": "myziliao",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{host}}/api2/repos/",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api2",
+						"repos",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"_postman_id": "f4b196e7-c925-4926-a863-3f6dcdbb77bb",
+			"name": "repos Copy",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "d977cfa5-82ea-48ce-b0af-fad40a81b539",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"提取id\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    //console.log(jsonData[0].id);",
+							"    pm.globals.set(\"id\", jsonData[0].id);",
+							"});",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "token {{t}}"
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "{{host}}/api2/repos/",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api2",
+						"repos",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"_postman_id": "aaec5a3b-a2b7-47de-a3dc-a79d33728f89",
+			"name": "addfile",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "396ffe3b-f06c-4084-a7b8-d4de40d53666",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Body matches string\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"name\");",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "token {{t}}"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "operation",
+							"value": "create",
+							"sessionValue": "create",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{host}}/api2/repos/{{id}}/file/?p=/qqq&reloaddir=true",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api2",
+						"repos",
+						"{{id}}",
+						"file",
+						""
+					],
+					"query": [
+						{
+							"key": "p",
+							"value": "/qqq"
+						},
+						{
+							"key": "reloaddir",
+							"value": "true"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"_postman_id": "9d7c7336-e8d7-402b-b582-e91a9a8e622a",
+			"name": "deletefile",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "token {{t}}"
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "{{host}}/api2/repos/{{id}}/file/?p=/qqq&reloaddir=true",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api2",
+						"repos",
+						"{{id}}",
+						"file",
+						""
+					],
+					"query": [
+						{
+							"key": "p",
+							"value": "/qqq"
+						},
+						{
+							"key": "reloaddir",
+							"value": "true"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "f614e794-91aa-4ec9-ba84-3a7d103471ad",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "5419ea26-90b5-4b0f-a42f-9f727e56e979",
+				"type": "text/javascript",
+				"exec": [
+					"pm.test(\"Response time is less than 200ms\", function () {",
+					"    pm.expect(pm.response.responseTime).to.be.below(200);",
+					"});",
+					"",
+					"",
+					"pm.test(\"Status code is 200\", function () {",
+					"    pm.response.to.have.status(200);",
+					"});"
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "f5e0630a-aebd-4b47-9da6-1a7f97002efd",
+			"key": "host",
+			"value": "http://42.192.62.88",
+			"type": "string"
+		}
+	]
+}

@@ -1,0 +1,37 @@
+[Err] 1046 - No database selected
+	没有数据库被选择
+	表是存放在数据库中，想操作表必须先选择数据库
+
+[Err] 1109 - Unknown table 'dept' in mysql
+	表'dept'在mysql数据库中是未知的
+
+[Err] 1136 - Column count doesn't match value count at row 1
+	字段的数量与值的数量不一致
+
+[Err] 1062 - Duplicate entry '9527' for key 'PRIMARY'
+	主键重复的输入了'9527'
+	一般情况下，表的第一个字段是编号，它不允许为空并且不允许重复（主键约束）
+
+[Err] 1452 - Cannot add or update a child row: a foreign key constraint fails (`scott`.`emp`, CONSTRAINT `emp_ibfk_1` FOREIGN KEY (`deptno`) REFERENCES `dept` (`deptno`))
+	emp表的deptno字段取值，只能取dept表dpetno字段有的值（外键约束）
+
+[Err] 1064 - You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 9
+	SQL语句有语法错误，在代码第9行的')'附近
+
+[Err] 1291 - Column 'gender' has duplicated value '?' in ENUM
+	字段'gender'的值有问题
+	Linux操作系统中MySQL默认不支持中文，如果想要表支持中文，则需要设置字符编码
+
+[Err] 1050 - Table 'student' already exists
+	表格'student'已经存在了
+
+[Err] 1048 - Column 'sid' cannot be null
+	字段'sid'不能为null
+
+[Err] 1111 - Invalid use of group function
+	错误的使用了分组函数
+	分组函数不能直接写在where后面，它需要写在having后面
+
+[Err] 1242 - Subquery returns more than 1 row
+	子查询返回了多个值
+	当子查询返回多个值时，条件应该用in而不是=

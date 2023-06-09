@@ -1,0 +1,167 @@
+测试的岗位要求
+1.熟悉测试流程
+    需求分析
+    编写测试用例
+    搭建测试环境
+    执行测试用例
+    定位和分析Bug
+    回归测试
+    测试报告
+
+2.编写测试用例的能力（非常非常重要）
+    XXX怎么测的？
+    面游戏会问 商城怎么测？XX装备怎么测？任务流程怎么测？
+    互联网会问 支付怎么测？优惠劵怎么测？
+    手机整机会问 wifi怎么测？蓝牙怎么测？通讯录怎么测？相机怎么测？
+    车载会问 蓝牙怎么测？导航怎么测？语音识别怎么测？
+    以上问只是常见问题，并不囊括所有问题。
+    笔怎么测？水杯怎么测？
+    https://www.nowcoder.com/discuss/923409
+
+3.分析问题的能力（很难学会）
+    XXX问题，你怎么分析？你会怎么处理？
+    考量的一个人的知识积累和分析问题的思路
+
+4.技术
+    Linux、MySQL、HTTP协议、网络协议、代码、工具使用
+
+5.业务熟练度（对简历项目中的业务熟悉程度）
+    对自己简历当中的项目的功能要有非常高的熟悉程度才能够说服面试官
+
+
+==================================================================================
+汽车电子行业，软件测试 开篇
+
+1、汽车的功能是怎么实现的？例如：踩个刹车，车怎么会减速？
+刹车板-->传感器-->电信号发收器-->电信号总线（CAN）-->电子控制单元（ECU）-->.... -->刹车片
+绝大部分功能都是通过ECU实现的
+2、汽车软件测试包含哪些模块？
+中控
+仪表
+....
+ADAS
+T-box
+3、每个模块的具体功能
+中控：中控可以理解为一个安卓操作系统的平板电脑
+	蓝牙BT、ivi（音乐|收音机）、导航、carLife|carPlay
+仪表：信号灯，警告灯
+	信号灯：方向灯、车门未关闭
+	警告灯：发动机动力不足、电池电量不足、胎压警报...
+	行车电脑计算：里程数、油耗、剩余里程数、车速
+	一般使用模拟仿真信号进行测试（台架测试）
+ADAS：
+	略
+T-BOX：汽车联网功能
+	在线升级系统，在线下载安装
+	远程控制
+4、如果要通过车载面试，需要准备哪内容？
+1.行业知识
+	你的公司有哪些产品（明星产品、正在研发的产品必须了解）
+	你去面试的公司负责哪块的业务，也最好有一定的了解，汽车行业圈子很小。
+	https://mp.weixin.qq.com/s?__biz=MzA4NTcwMDQwMg==&mid=2650814657&idx=1&sn=3a798b0fcf8666166a4344a032356125&chksm=8427629cb350eb8ac25b6778114598f58d135724a90aa61f824989b29c6e84654782e41a5d98&scene=21#wechat_redirect
+2.专业技能
+	测试流程，编写测试用例
+	车载的专业词汇
+	模拟仿真环境搭建
+	报文的模拟、筛选、分析，对应各项数据的计算公式
+3.职业素养
+	积极性、求职欲望、自信心、学习能力、稳定性
+   解决问题的能力
+	分析和总结能力	
+
+
+=====================================================================
+专业词汇
+ECU	电子控制单元
+CAN	汽车电信号总线
+UDS	统一诊断服务
+ADAS	高级辅助智能驾驶系统
+BT	BlueTooth	蓝牙
+T-box	远程信息处理器（汽车上的网络信号收发器）
+ivi	车载信息娱乐系统
+NAVI	车辆导航
+BCM        车体控制模块(车体电脑)
+ECM          发动机控制模块
+SVC	Surround View Camera 环视摄像头
+SWC	Steering Wheel Control 方向盘控制
+DMS	人脸识别模块
+DSCU	     座椅模块（带座椅加热、通风、按摩、座椅记忆功能）
+HVSM	座椅模块（带座椅加热、通风、按摩）
+
+
+ACC OFF	指ACC硬线信号为低，CRANK时ACC硬线信号也为低
+ACC ON	指ACC硬线信号为高
+ACU         气囊控制器
+AM	amplitude modulation 调幅（一种收音广播）
+AMP	Amplifier 功放
+AUX IN	auxiliary input 辅助输入（常用来指外部音视频的输入）
+AVM	Around View Monitor 全景监控影像系统
+APA	Auto Park Assist System自动泊车辅助系统
+BLE	Bluetooth Low Energy蓝牙低能耗
+BT	Bluetooth 蓝牙
+BCM        车体控制模块(车体电脑)
+CAN	Controller Area Network 控制器局域网络
+CVBS	composite video broadcast signal 复合视频
+DLNA	DIGITAL LIVING NETWORK ALLIANCE数字生活网络联盟
+DVR	Digital Video Recorder行车记录仪
+ESP           Electronic Stability Program   车身电子稳定系统
+ECM          发动机控制模块
+ENT	Entertainment 多媒体娱乐(收音机、USB等)
+FM	frequency modulation  调频（一种收音广播）
+GPS	Global Position System 全球定位系统
+HMI	Human Machine Interface 人际交互
+HUD	Head Up Display 抬头显示器
+ICM          点火控制模块
+IME	Input Method Editor输入法编辑器
+IPK	Instrument Pack仪表
+LIN	Local Interconnect Network  （一种串行通讯网络）
+LVDS	Low Voltage Differential Signal 低压差分信号
+MCU	Microcontroller Unit微控制单元
+MIC	Microphone  麦克风
+MMI	Multi-Media Infotainment 多媒体信息系统
+OBD         On Board Diagnostics 车载自动诊断系统,这套系统能在汽车运行过程中实时监测发动机电控系统及车辆的其它功能模块的工作状况，
+                如有发现工况异常，则根据特定的算法判断出具体的故障，
+                并以诊断故障代码(DTC，Diagnostic Trouble Codes)的形式存储在系统内的存储器上。
+PPM	Play Position Memory 记住上次播放的位置
+RSE	Rear Seat Entertainment 后座娱乐系统
+RVC	Rear View Camera  后视摄像头
+CPU	Central Processing Unit中央处理机
+SVC	Surround View Camera 环视摄像头
+SWC	Steering Wheel Control 方向盘控制
+TCP	Transmission Control Protocol 传输控制协议
+TTS	Text To Speech从文本到语音
+USB	Universal Serial Bus   通用串行总线
+VR	Voice Recognition语音识别
+T-BOX	Telematics Box 车载通讯基础终端
+RRS	Reverse Radar System 倒车雷达系统
+PAC	Parking Assist Control 泊车辅助控制器
+PAS	Parking Assist System 泊车辅助系统
+PDC	Parking Distance Control停车距离控制系统（雷达）
+PEPS	Passive Entry/Passive Start 无钥匙进入启动系统
+BCM	Body Control Module 车身控制模块
+E-CALL	Emergency Call 紧急救援呼叫
+B-CALL	Breakdown Call 道路救援
+DMS	人脸识别模块
+DSCU	     座椅模块（带座椅加热、通风、按摩、座椅记忆功能）
+HVSM	座椅模块（带座椅加热、通风、按摩）
+
+
+
+POY	
+FOTA	
+SOTA	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

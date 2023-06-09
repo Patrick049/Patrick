@@ -1,0 +1,9 @@
+--------------------------------info[08:57:32]--------------------------------
+System.Exception: v2rayN start up v2rayN - V4.12 - 2021/02/16
+
+ 
+--------------------------------远程服务器返回错误: (503) 服务器不可用。[08:58:46]--------------------------------
+System.Net.WebException: 远程服务器返回错误: (503) 服务器不可用。
+   在 v2rayN.Handler.DownloadHandle.ws_DownloadFileCompleted(Object sender, AsyncCompletedEventArgs e)
+
+ 

@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testResults version="1.2">
+<httpSample t="114" it="0" lt="113" ct="63" ts="1662548515021" s="true" lb="登录" rc="200" rm="OK" tn="线程组 1-1" dt="text" by="290" sby="255" ng="1" na="1">
+  <assertionResult>
+    <name>响应断言</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <java.net.URL>http://42.192.62.88/api2/auth-token/</java.net.URL>
+</httpSample>
+<httpSample t="33" it="0" lt="33" ct="0" ts="1662548515147" s="true" lb="账号信息" rc="200" rm="OK" tn="线程组 1-1" dt="text" by="471" sby="198" ng="1" na="1">
+  <assertionResult>
+    <name>响应断言</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <java.net.URL>http://42.192.62.88/api2/account/info/</java.net.URL>
+</httpSample>
+<httpSample t="80" it="0" lt="80" ct="44" ts="1662548515203" s="true" lb="登录" rc="400" rm="Bad Request" tn="线程组 1-2" dt="text" by="314" sby="254" ng="1" na="1">
+  <assertionResult>
+    <name>响应断言</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <java.net.URL>http://42.192.62.88/api2/auth-token/</java.net.URL>
+</httpSample>
+<httpSample t="22" it="0" lt="22" ct="0" ts="1662548515290" s="true" lb="账号信息" rc="401" rm="Unauthorized" tn="线程组 1-2" dt="text" by="287" sby="166" ng="1" na="1">
+  <assertionResult>
+    <name>响应断言</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <java.net.URL>http://42.192.62.88/api2/account/info/</java.net.URL>
+</httpSample>
+<httpSample t="58" it="0" lt="58" ct="21" ts="1662548515529" s="true" lb="登录" rc="400" rm="Bad Request" tn="线程组 1-3" dt="text" by="314" sby="252" ng="1" na="1">
+  <assertionResult>
+    <name>响应断言</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <java.net.URL>http://42.192.62.88/api2/auth-token/</java.net.URL>
+</httpSample>
+<httpSample t="25" it="0" lt="25" ct="0" ts="1662548515594" s="true" lb="账号信息" rc="401" rm="Unauthorized" tn="线程组 1-3" dt="text" by="287" sby="166" ng="1" na="1">
+  <assertionResult>
+    <name>响应断言</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <java.net.URL>http://42.192.62.88/api2/account/info/</java.net.URL>
+</httpSample>
+
+<httpSample t="121" it="0" lt="121" ct="78" ts="1662549448417" s="true" lb="登录" rc="200" rm="OK" tn="线程组 1-1" dt="text" by="290" sby="255" ng="1" na="1">
+  <assertionResult>
+    <name>响应断言</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <java.net.URL>http://42.192.62.88/api2/auth-token/</java.net.URL>
+</httpSample>
+<httpSample t="26" it="0" lt="26" ct="0" ts="1662549448548" s="true" lb="账号信息" rc="200" rm="OK" tn="线程组 1-1" dt="text" by="471" sby="198" ng="1" na="1">
+  <assertionResult>
+    <name>响应断言</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <java.net.URL>http://42.192.62.88/api2/account/info/</java.net.URL>
+</httpSample>
+<httpSample t="50" it="0" lt="50" ct="22" ts="1662549448607" s="true" lb="登录" rc="400" rm="Bad Request" tn="线程组 1-2" dt="text" by="314" sby="254" ng="1" na="1">
+  <assertionResult>
+    <name>响应断言</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <java.net.URL>http://42.192.62.88/api2/auth-token/</java.net.URL>
+</httpSample>
+<httpSample t="24" it="0" lt="24" ct="0" ts="1662549448659" s="true" lb="账号信息" rc="401" rm="Unauthorized" tn="线程组 1-2" dt="text" by="287" sby="166" ng="1" na="1">
+  <assertionResult>
+    <name>响应断言</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <java.net.URL>http://42.192.62.88/api2/account/info/</java.net.URL>
+</httpSample>
+<httpSample t="69" it="0" lt="69" ct="29" ts="1662549448957" s="true" lb="登录" rc="400" rm="Bad Request" tn="线程组 1-3" dt="text" by="314" sby="252" ng="1" na="1">
+  <assertionResult>
+    <name>响应断言</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <java.net.URL>http://42.192.62.88/api2/auth-token/</java.net.URL>
+</httpSample>
+<httpSample t="29" it="0" lt="29" ct="0" ts="1662549449027" s="true" lb="账号信息" rc="401" rm="Unauthorized" tn="线程组 1-3" dt="text" by="287" sby="166" ng="1" na="1">
+  <assertionResult>
+    <name>响应断言</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <java.net.URL>http://42.192.62.88/api2/account/info/</java.net.URL>
+</httpSample>
+
+<httpSample t="126" it="0" lt="126" ct="59" ts="1662550705340" s="true" lb="登录" rc="200" rm="OK" tn="线程组 1-1" dt="text" by="290" sby="255" ng="1" na="1">
+  <assertionResult>
+    <name>响应断言</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <java.net.URL>http://42.192.62.88/api2/auth-token/</java.net.URL>
+</httpSample>
+<httpSample t="29" it="0" lt="29" ct="0" ts="1662550705479" s="true" lb="账号信息" rc="200" rm="OK" tn="线程组 1-1" dt="text" by="471" sby="198" ng="2" na="2">
+  <assertionResult>
+    <name>响应断言</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <java.net.URL>http://42.192.62.88/api2/account/info/</java.net.URL>
+</httpSample>
+<httpSample t="47" it="0" lt="46" ct="18" ts="1662550705484" s="true" lb="登录" rc="400" rm="Bad Request" tn="线程组 1-2" dt="text" by="314" sby="254" ng="1" na="1">
+  <assertionResult>
+    <name>响应断言</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <java.net.URL>http://42.192.62.88/api2/auth-token/</java.net.URL>
+</httpSample>
+<httpSample t="24" it="0" lt="24" ct="0" ts="1662550705533" s="true" lb="账号信息" rc="401" rm="Unauthorized" tn="线程组 1-2" dt="text" by="287" sby="166" ng="1" na="1">
+  <assertionResult>
+    <name>响应断言</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <java.net.URL>http://42.192.62.88/api2/account/info/</java.net.URL>
+</httpSample>
+<httpSample t="59" it="0" lt="59" ct="22" ts="1662550705780" s="true" lb="登录" rc="400" rm="Bad Request" tn="线程组 1-3" dt="text" by="314" sby="252" ng="1" na="1">
+  <assertionResult>
+    <name>响应断言</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <java.net.URL>http://42.192.62.88/api2/auth-token/</java.net.URL>
+</httpSample>
+<httpSample t="41" it="0" lt="41" ct="0" ts="1662550705841" s="true" lb="账号信息" rc="401" rm="Unauthorized" tn="线程组 1-3" dt="text" by="287" sby="166" ng="1" na="1">
+  <assertionResult>
+    <name>响应断言</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <java.net.URL>http://42.192.62.88/api2/account/info/</java.net.URL>
+</httpSample>
+
+</testResults>

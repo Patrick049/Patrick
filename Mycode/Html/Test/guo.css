@@ -1,0 +1,28 @@
+img {
+  width: '30%';
+  border: 3px dotted blue;
+  border-radius: 25px;
+}
+
+h1 {
+  color: black;
+  font-size: 28px;
+  font-family: "华文彩云";
+}
+
+.c1 {
+  color: red;
+
+
+  font-size: 18pt;
+}
+
+.bjimg {
+   position: fixed;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   z-index: -10;
+   object-fit: cover;
+ }

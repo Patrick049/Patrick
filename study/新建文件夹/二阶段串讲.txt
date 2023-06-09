@@ -1,0 +1,31 @@
+1.软件测试的目的
+
+2.研发的组织和流程
+
+3.研发模型
+瀑布模型  
+双v模型 优：测试介入早，修复问题成本低
+         缺：测试对开发依赖性较强
+
+4.测试四阶段
+单元测试 集成测试 系统测试 
+验证测试：正式验收：第三方专业验收机构进行验证
+          非正式验收：阿尔法测试和贝塔测试
+
+5.回归测试的策略
+
+
+数据库连接查询
+左连接：select * from a left join b on a.xxx=b.xxx;
+右连接：select * from a right join b on a.xxx=b.xxx;
+内连接：select * from a inner join b on a.xxx=b.xxx;
+
+select * from t where name not in (
+select name from t where fenshu < 60);
+
+
+
+
+
+
+

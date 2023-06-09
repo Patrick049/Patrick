@@ -1,0 +1,1244 @@
+{
+	"info": {
+		"_postman_id": "3dcfecbf-64fc-4efe-a03b-668ef2995966",
+		"name": "APP项目Seafile接口",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "22922607"
+	},
+	"item": [
+		{
+			"name": "登录鉴权接口成功",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response time is less than 2000ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Body matches string\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"token\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Your test name\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.globals.set(\"t\", jsonData.token);\r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "content-type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "username",
+							"value": "pai@qq.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "123456",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{ip}}/api2/auth-token/",
+					"host": [
+						"{{ip}}"
+					],
+					"path": [
+						"api2",
+						"auth-token",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "登录鉴权接口失败：密码错误",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Response time is less than 200ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Body matches string\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"Unable to login with provided credentials\");\r",
+							"});\r",
+							"\r",
+							"\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "content-type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "username",
+							"value": "pai@qq.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "1234567",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{ip}}/api2/auth-token/",
+					"host": [
+						"{{ip}}"
+					],
+					"path": [
+						"api2",
+						"auth-token",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "查看账号信息成功",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Body matches string\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"email\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "token {{t}}",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json; indent=4",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{ip}}/api2/account/info/",
+					"host": [
+						"{{ip}}"
+					],
+					"path": [
+						"api2",
+						"account",
+						"info",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "查看账号信息失败：Token值错误",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Body matches string\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"Invalid token\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json; indent=4",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "token 111111111111111",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{ip}}/api2/account/info/",
+					"host": [
+						"{{ip}}"
+					],
+					"path": [
+						"api2",
+						"account",
+						"info",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "新增资料库接口成功",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Body matches string\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"repo_name\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Your test name\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.globals.set(\"kuid\", jsonData.repo_id);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "content-type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "token {{t}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "name",
+							"value": "Postman",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{ip}}/api2/repos/",
+					"host": [
+						"{{ip}}"
+					],
+					"path": [
+						"api2",
+						"repos",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "新增资料库接口失败：不填写资料库名",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Body matches string\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"Library name is required\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "content-type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "token {{t}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{ip}}/api2/repos/",
+					"host": [
+						"{{ip}}"
+					],
+					"path": [
+						"api2",
+						"repos",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "查看所有资料库成功",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Body matches string\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"pai@qq.com\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "content-type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "token {{t}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{ip}}/api2/repos/",
+					"host": [
+						"{{ip}}"
+					],
+					"path": [
+						"api2",
+						"repos",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "查看所有资料库失败：Token值错误",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Body matches string\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"Invalid token\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "content-type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "token 111111111111111",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{ip}}/api2/repos/",
+					"host": [
+						"{{ip}}"
+					],
+					"path": [
+						"api2",
+						"repos",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "删除指定资料库成功",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Body matches string\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"success\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "content-type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "token {{t}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{ip}}/api2/repos/{{kuid}}/",
+					"host": [
+						"{{ip}}"
+					],
+					"path": [
+						"api2",
+						"repos",
+						"{{kuid}}",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "删除指定资料库失败：资料库id错误",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"    pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Body matches string\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"Sorry, but the requested page could not be found\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "content-type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "token {{t}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{ip}}/api2/repos/1111111111111/",
+					"host": [
+						"{{ip}}"
+					],
+					"path": [
+						"api2",
+						"repos",
+						"1111111111111",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "删除指定资料库失败：协议类型错误(Post)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Body matches string\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"Library not found\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "content-type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "token {{t}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{ip}}/api2/repos/{{kuid}}/",
+					"host": [
+						"{{ip}}"
+					],
+					"path": [
+						"api2",
+						"repos",
+						"{{kuid}}",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "新增资料库接口成功 Copy",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Body matches string\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"repo_name\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Your test name\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.globals.set(\"kuid\", jsonData.repo_id);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "content-type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "token {{t}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "name",
+							"value": "Postman",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{ip}}/api2/repos/",
+					"host": [
+						"{{ip}}"
+					],
+					"path": [
+						"api2",
+						"repos",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "在指定资料库新建文件成功",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Body matches string\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"pai\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Your test name\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.globals.set(\"fname\", jsonData[0].name);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "content-type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "token {{t}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "operation",
+							"value": "create",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{ip}}/api2/repos/{{kuid}}/file/?p=/pai&reloaddir=true",
+					"host": [
+						"{{ip}}"
+					],
+					"path": [
+						"api2",
+						"repos",
+						"{{kuid}}",
+						"file",
+						""
+					],
+					"query": [
+						{
+							"key": "p",
+							"value": "/pai"
+						},
+						{
+							"key": "reloaddir",
+							"value": "true"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "在指定资料库新建文件失败：不填写请求体operation",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Body matches string\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"Operation can only be rename, create or move\");\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "content-type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "token {{t}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "operation",
+							"value": "create",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "{{ip}}/api2/repos/{{kuid}}/file/?p=/Pai&reloaddir=true",
+					"host": [
+						"{{ip}}"
+					],
+					"path": [
+						"api2",
+						"repos",
+						"{{kuid}}",
+						"file",
+						""
+					],
+					"query": [
+						{
+							"key": "p",
+							"value": "/Pai"
+						},
+						{
+							"key": "reloaddir",
+							"value": "true"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "在指定资料库删除文件成功",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Body matches string\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"[]\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "content-type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "token {{t}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{ip}}/api2/repos/{{kuid}}/file/?p=/pai&reloaddir=true",
+					"host": [
+						"{{ip}}"
+					],
+					"path": [
+						"api2",
+						"repos",
+						"{{kuid}}",
+						"file",
+						""
+					],
+					"query": [
+						{
+							"key": "p",
+							"value": "/pai"
+						},
+						{
+							"key": "reloaddir",
+							"value": "true"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "在指定资料库删除文件失败：Token值错误",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Body matches string\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"Invalid token\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "content-type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "token 1111111111111",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{ip}}/api2/repos/{{kuid}}/file/?p=/pai&reloaddir=true",
+					"host": [
+						"{{ip}}"
+					],
+					"path": [
+						"api2",
+						"repos",
+						"{{kuid}}",
+						"file",
+						""
+					],
+					"query": [
+						{
+							"key": "p",
+							"value": "/pai"
+						},
+						{
+							"key": "reloaddir",
+							"value": "true"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "在指定资料库新建文件成功 Copy",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Body matches string\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"pai\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Your test name\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.globals.set(\"fname\", jsonData[0].name);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "content-type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "token {{t}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "operation",
+							"value": "create",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{ip}}/api2/repos/{{kuid}}/file/?p=/pai&reloaddir=true",
+					"host": [
+						"{{ip}}"
+					],
+					"path": [
+						"api2",
+						"repos",
+						"{{kuid}}",
+						"file",
+						""
+					],
+					"query": [
+						{
+							"key": "p",
+							"value": "/pai"
+						},
+						{
+							"key": "reloaddir",
+							"value": "true"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "添加星标文件成功",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Body matches string\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"success\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "content-type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "token {{t}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "repo_id",
+							"value": "{{kuid}}",
+							"type": "text"
+						},
+						{
+							"key": "p",
+							"value": "/{{fname}}",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{ip}}/api2/starredfiles/",
+					"host": [
+						"{{ip}}"
+					],
+					"path": [
+						"api2",
+						"starredfiles",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "添加星标文件失败：文件名错误",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Body matches string\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"File not found\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "content-type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "token {{t}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "repo_id",
+							"value": "{{kuid}}",
+							"type": "text"
+						},
+						{
+							"key": "p",
+							"value": "/111",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{ip}}/api2/starredfiles/",
+					"host": [
+						"{{ip}}"
+					],
+					"path": [
+						"api2",
+						"starredfiles",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "查询星标文件成功",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Body matches string\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"file_name\");\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "token {{t}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{ip}}/api2/starredfiles/",
+					"host": [
+						"{{ip}}"
+					],
+					"path": [
+						"api2",
+						"starredfiles",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "查询星标文件失败：Token值错误",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Body matches string\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"Invalid token\");\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "token 1111111111",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{ip}}/api2/starredfiles/",
+					"host": [
+						"{{ip}}"
+					],
+					"path": [
+						"api2",
+						"starredfiles",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "删除已添加的星标文件",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Body matches string\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"success\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "content-type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "token {{t}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{ip}}/api2/starredfiles/?repo_id={{kuid}}&p=/{{fname}}",
+					"host": [
+						"{{ip}}"
+					],
+					"path": [
+						"api2",
+						"starredfiles",
+						""
+					],
+					"query": [
+						{
+							"key": "repo_id",
+							"value": "{{kuid}}"
+						},
+						{
+							"key": "p",
+							"value": "/{{fname}}"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "ip",
+			"value": "http://42.192.62.88:80",
+			"type": "string"
+		}
+	]
+}
